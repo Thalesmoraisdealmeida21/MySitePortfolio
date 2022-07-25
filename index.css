@@ -4,6 +4,8 @@ body {
     list-style: none;
     background-color: #131313;
     font-family: 'Roboto';
+    background-image: url('assets/background.jpg');
+    background-size: cover;
 }
 
 

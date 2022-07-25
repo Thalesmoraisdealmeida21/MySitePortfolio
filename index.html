@@ -22,74 +22,112 @@
 
         <div class="menu">
             <ul>
-                <li class="selected">Inicio</li>
+                <li class="selected" id="menuInicio" onclick="changePage('inicio')">Inicio</li>
                 <li>Sobre mim</li>
-                <li>Contato</li>
-                
+                <li id="menuContato" onclick="changePage('contato')">Contato</li>
+
             </ul>
         </div>
     </header>
 
-    <section>
-        <div class="home">
-            <div class="container">
 
-                <h2>Olá</h2>
-                <h1> Eu sou o Thales</h1>
-                <p> Desenvolvedor e Engenheiro QA</p>
+    <div id="inicio">
+        <section>
+            <div class="home">
+                <div class="container">
 
-            </div>
+                    <h2>Olá</h2>
+                    <h1> Eu sou o Thales</h1>
+                    <p> Desenvolvedor e Engenheiro QA</p>
 
-            <div class="container">
-                <img src="assets/imgHome.png" alt="Image Home" />
-
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="WhatIDo">
-            <div class="gridContainer">
-                <div class="header">
-                    <h3> O que eu sei</h3>
-                    <div class="line"></div>
                 </div>
 
-                <div class="content">
+                <div class="container">
+                    <img src="assets/imgHome.png" alt="Image Home" />
 
-
-                    <div class="card">
-                        <h3>Javascript</h3>
-                    </div>
-                    <div class="card">
-                        <h3>HTML/CSS</h3>
-                    </div>
-                    <div class="card">
-                        <h3>Python</h3>
-                    </div>
-                    <div class="card">
-                        <h3>Robot Framework</h3>
-                    </div>
-                    <div class="card">
-                        <h3>Cypress</h3>
-                    </div>
-                    <div class="card">
-                        <h3>Docker</h3>
-                    </div>
-                    <div class="card">
-                        <h3>Locust</h3>
-                    </div>
-                    <div class="card">
-                        <h3>Gitlab CI</h3>
-                    </div>
                 </div>
-
-
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section>
+            <div class="WhatIDo">
+                <div class="gridContainer">
+                    <div class="header">
+                        <h3> O que eu sei</h3>
+                        <div class="line"></div>
+                    </div>
+
+                    <div class="content">
 
 
+                        <div class="card">
+                            <h3>Javascript</h3>
+                        </div>
+                        <div class="card">
+                            <h3>HTML/CSS</h3>
+                        </div>
+                        <div class="card">
+                            <h3>Python</h3>
+                        </div>
+                        <div class="card">
+                            <h3>Robot Framework</h3>
+                        </div>
+                        <div class="card">
+                            <h3>Cypress</h3>
+                        </div>
+                        <div class="card">
+                            <h3>Docker</h3>
+                        </div>
+                        <div class="card">
+                            <h3>Locust</h3>
+                        </div>
+                        <div class="card">
+                            <h3>Gitlab CI</h3>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div id="contato" style="display: none">
+        <h1 style="color: white">Contato</h1>
+    </div>
+
+    <script>
+
+
+        var page = 'inicio';
+        function changePage(pageToChange) {
+
+
+
+            if (pageToChange == 'contato') {
+                var el1 = document.getElementById('contato')
+                var el2 = document.getElementById('inicio')
+                document.getElementById('menuInicio').classList.remove('selected')
+                document.getElementById('menuContato').classList.add('selected')
+                el1.style.display = 'flex'
+                el2.style.display = 'none'
+            }
+
+            if (pageToChange == 'inicio') {
+                var el1 = document.getElementById('contato')
+                var el2 = document.getElementById('inicio')
+                document.getElementById('menuInicio').classList.add('selected')
+                document.getElementById('menuContato').classList.remove('selected')
+                el1.style.display = 'none'
+                el2.style.display = 'flex'
+                el2.style.flexDirection = 'column'
+            }
+
+
+        }
+
+    </script>
 
 </body>
 
