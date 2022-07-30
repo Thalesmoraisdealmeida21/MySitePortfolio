@@ -1,0 +1,256 @@
+body .signature:hover {
+  color: white;
+}
+
+.navigationWrapper {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: transparent;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+  color: white;
+  text-transform: uppercase;
+  overflow: hidden;
+  height: 50px;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.navigationWrapperScroll {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #1F1E1D;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25);
+  color: white;
+  text-transform: uppercase;
+  overflow: hidden;
+  height: 50px;
+  width: 100%;
+}
+
+
+.navigationWrapper .logoWrapper {
+  display: flex;
+  margin-left: 10px;
+  padding: 15px;
+
+}
+
+.navigationWrapper .logoWrapper .stylish {
+  font-weight: bold;
+}
+
+.navigationWrapper .logoWrapper .logo {
+  padding-left: 4px;
+  color: #4457FF;
+}
+
+.navigationWrapper .navigation {
+  display: flex;
+  list-style-type: none;
+  margin-left: auto;
+}
+
+.navigationWrapper .navigation li {
+  opacity: 1;
+  list-style-type: none;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.navigationWrapper .navigation li:hover {
+  opacity: 1;
+  list-style-type: none;
+  color: #077773;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.navigationWrapper .navigation .parent {
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.navigationWrapper .navigation .parent .link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  color: white;
+}
+
+.navigationWrapper .navigation .parent .link:hover {
+  color: #4457FF;
+}
+
+.navigationWrapper .navigation .parent .link .fa-minus {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  left: -16px;
+  top: 3px;
+}
+
+.navigationWrapper .navigation .parent .link .fa-plus {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.navigationWrapper .navigation .parent .link .fas {
+  color: #4457FF;
+  margin: -2px 4px 0;
+  font-size: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.navigationWrapper .navigation .subnavigation {
+  display: none;
+  list-style-type: none;
+  width: 500px;
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  margin: auto;
+  transition: all 0.3s ease-in-out;
+  background-color: #222;
+}
+
+.navigationWrapper .navigation .subnavigation li a {
+  font-size: 17px;
+  padding: 0 5px;
+  margin-left: auto;
+}
+
+.active.parent {
+  transform: translate(-40px, -25px);
+}
+
+.active.parent .link {
+  font-size: 12px;
+}
+
+.active.parent .link .fa-minus {
+  opacity: 1 !important;
+  font-size: 8px;
+}
+
+.active.parent .link .fa-plus {
+  opacity: 0 !important;
+}
+
+.active.parent .subnavigation {
+  display: flex;
+}
+
+.active#clients .subnavigation {
+  transform: translate(-150px, 17px);
+}
+
+.active#services .subnavigation {
+  transform: translate(-290px, 17px);
+}
+
+.invisible {
+  opacity: 0 !important;
+  transform: translate(50px, 0);
+}
+
+.btnCollapse {
+  height: 50px;
+  width: 50px;
+  color: white;
+  background: #4457FF;
+  border: transparent;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px black;
+  margin-right: auto;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.navigationCollapse {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+}
+
+.menuUptions {
+  margin-left: auto;
+  margin-right: 10vw;
+}
+
+.logoButton {
+  display: flex;
+  flex-direction: row;
+
+}
+
+@media (max-width: 900px) {
+  .navigation {
+    margin-right: 30px;
+    margin: 0;
+    visibility: hidden;
+  }
+ 
+
+
+  .navigationWrapperShow {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #1F1E1D;
+  }
+
+  .menuUptions {
+    margin: auto;
+  }
+
+  .navigationWrapperShow .navigation {
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navigationWrapperShow .navigation li {
+    margin: 16px 0;
+  }
+
+  .navigationCollapse {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100%;
+  }
+
+  .navigationWrapperShow .logoButton {
+
+    padding: 20px 0;
+  }
+
+
+  .logoButton {
+    display: flex;
+    visibility: visible;
+    padding: 0px 0;
+  }
+
+  .btnCollapse {
+    margin-left: auto;
+    margin-right: 10vw;
+    visibility: visible;
+    display: flex;
+  }
+
+  .btnCollapse i {
+    font-size: 44px;
+  }
+}

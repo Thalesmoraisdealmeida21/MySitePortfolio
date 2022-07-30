@@ -6,8 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="navbar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="https://kit.fontawesome.com/85f6328667.js" crossorigin="anonymous"></script>
+
+
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
@@ -15,19 +22,43 @@
 </head>
 
 <body>
+    <nav class="navigationWrapper" id="navbarmenu">
+        
+        <div class="navigationCollapse">
+           
+            <div class="logoButton">
+                <div class="logoWrapper">
+                    <span class="stylish">Thales</span>
+                    <span class="logo">Morais</span>
+                </div>
+                <button class="btnCollapse" onclick="openDropdown()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        
+            <div class="menuUptions">
+                <ul class="navigation">
+
+                    <li class="parent" id="menuInicio" onclick="changePage('inicio')">Inicio</li>
+                    <li class="parent" onclick="changePage('oqueeusei')">Sobre-mim</li>
+                    <!--<li class="parent">Blog</li>
+                        <li class="parent">Meus Projetos</li> -->
+                    <li class="parent" id="menuContato" onclick="changePage('contato')">Contato</li>
+    
+                </ul>
+            </div>
+          
+        </div>
+
+    
+
+    </nav>
 
     <header>
 
 
 
-        <div class="menu">
-            <ul>
-                <li class="selected" id="menuInicio" onclick="changePage('inicio')">Inicio</li>
-                <li>Sobre mim</li>
-                <li id="menuContato" onclick="changePage('contato')">Contato</li>
 
-            </ul>
-        </div>
     </header>
 
 
@@ -50,7 +81,7 @@
         </section>
 
         <section>
-            <div class="WhatIDo">
+            <div class="WhatIDo" id="whatido">
                 <div class="gridContainer">
                     <div class="header">
                         <h3> O que eu sei</h3>
@@ -93,42 +124,64 @@
 
     </div>
 
-    <div id="contato" style="display: none">
-        <h1 style="color: white">Contato</h1>
+    <div id="contato" style="display: flex">
+
+        <div class="contact">
+
+            <div class="cardContact">
+                <h2>Me envie uma mensagem</h2>
+
+                <div class="inputs">
+
+                    <input type="text" placeholder="Nome">
+                    <input type="e-mail" placeholder="E-mail">
+                    <textarea placeholder="Assunto" rows="50"></textarea>
+
+                    <button type="submit" class="btnDefault">Enviar Mensagem</button>
+                </div>
+
+
+                </textarea>
+            </div>
+
+            <div class="contactData">
+                <div class="cardContactData">
+                    <i class="fa-solid fa-at"></i>
+                    <div class="textCard">
+
+                        <h1>E-mail</h1>
+                        <p>thales.morais21@gmail.com</p>
+                    </div>
+
+                </div>
+
+                <div class="cardContactData">
+                    <i class="fa-solid fa-phone"></i>
+                    <div class="textCard">
+
+                        <h1>Telefone / Whatsapp</h1>
+                        <p>(55) 9 96628613</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script>
+    <div class="footer-basic">
+        <footer>
+            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
+                        class="icon ion-social-snapchat"></i></a><a href="#"><i
+                        class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a>
+            </div>
 
-
-        var page = 'inicio';
-        function changePage(pageToChange) {
-
-
-
-            if (pageToChange == 'contato') {
-                var el1 = document.getElementById('contato')
-                var el2 = document.getElementById('inicio')
-                document.getElementById('menuInicio').classList.remove('selected')
-                document.getElementById('menuContato').classList.add('selected')
-                el1.style.display = 'flex'
-                el2.style.display = 'none'
-            }
-
-            if (pageToChange == 'inicio') {
-                var el1 = document.getElementById('contato')
-                var el2 = document.getElementById('inicio')
-                document.getElementById('menuInicio').classList.add('selected')
-                document.getElementById('menuContato').classList.remove('selected')
-                el1.style.display = 'none'
-                el2.style.display = 'flex'
-                el2.style.flexDirection = 'column'
-            }
-
-
-        }
-
-    </script>
+            <p class="copyright">Thales Morais de Almeida © 2022</p>
+        </footer>
+    </div>
 
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 
 </html>
