@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <script src="https://kit.fontawesome.com/85f6328667.js" crossorigin="anonymous"></script>
     <script src="sendMail.js" crossorigin="anonymous"></script>
-    
+
 
     <script src="index.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
@@ -24,9 +24,9 @@
 
 <body>
     <nav class="navigationWrapper" id="navbarmenu">
-        
+
         <div class="navigationCollapse">
-           
+
             <div class="logoButton">
                 <div class="logoWrapper">
                     <span class="stylish">Thales</span>
@@ -36,7 +36,7 @@
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
-        
+
             <div class="menuUptions">
                 <ul class="navigation">
 
@@ -45,13 +45,13 @@
                     <!--<li class="parent">Blog</li>
                         <li class="parent">Meus Projetos</li> -->
                     <li class="parent" id="menuContato" onclick="changePage('contato')">Contato</li>
-    
+
                 </ul>
             </div>
-          
+
         </div>
 
-    
+
 
     </nav>
 
@@ -132,22 +132,29 @@
             <div class="cardContact">
                 <h2>Me envie uma mensagem</h2>
 
-                <div class="inputs">
+                <div class="inputs" id="inputsForm">
 
-                    <input type="text" placeholder="Nome">
-                    <input type="e-mail" placeholder="E-mail">
-                    <textarea placeholder="Assunto" rows="50"></textarea>
+                    <input type="text" placeholder="Nome" id="name">
+                    <input type="e-mail" placeholder="E-mail" id="email">
+                    <textarea placeholder="Assunto" rows="50" id="subject"></textarea>
 
                     <button type="submit" onclick="sendMail()" class="btnDefault">Enviar Mensagem</button>
+
                 </div>
+                <span id="spanText">Enviando seu contato, aguarde</span>
+                <div class="lds-ripple" style="display:none" id="spinnerLoader">
+                    <div></div>
+                    <div></div>
+                </div>
+                <i class="fa-solid fa-check-double" id="check" style="display: none"></i>
 
 
-                </textarea>
             </div>
 
             <div class="contactData">
                 <div class="cardContactData">
                     <i class="fa-solid fa-at"></i>
+
                     <div class="textCard">
 
                         <h1>E-mail</h1>
@@ -171,9 +178,8 @@
 
     <div class="footer-basic">
         <footer>
-            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
-                        class="icon ion-social-snapchat"></i></a><a href="#"><i
-                        class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a>
+            <div class="social"><a href="https://www.instagram.com/thales.morais21/"><i class="icon ion-social-instagram"></i></a><a
+                    href="https://www.linkedin.com/in/thales-morais/"><i class="icon ion-social-linkedin"></i></a>
             </div>
 
             <p class="copyright">Thales Morais de Almeida © 2022</p>

@@ -1,35 +1,39 @@
-function sendMail() {
-    fetch('https://api.mailjet.com/v3.1/send', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Basic ' + btoa('a0d23373922398875c4288f6a02375a3:fe5cb3110e14b78db958a9e1529d75e8')
-        },
-        // body: '{\n\t\t"Messages":[\n\t\t\t\t{\n\t\t\t\t\t\t"From": {\n\t\t\t\t\t\t\t\t"Email": "contato@thalesmorais.dev",\n\t\t\t\t\t\t\t\t"Name": "Me"\n\t\t\t\t\t\t},\n\t\t\t\t\t\t"To": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t"Email": "dalma2105@uorak.com",\n\t\t\t\t\t\t\t\t\t\t"Name": "You"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t],\n\t\t\t\t\t\t"Subject": "My first Mailjet Email!",\n\t\t\t\t\t\t"TextPart": "Greetings from Mailjet!",\n\t\t\t\t\t\t"HTMLPart": "<h3>Dear passenger 1, welcome to <a href=\\"https://www.mailjet.com/\\">Mailjet</a>!</h3><br />May the delivery force be with you!"\n\t\t\t\t}\n\t\t]\n\t}',
-        body: JSON.stringify({
-            'Messages': [
-                {
-                    'From': {
-                        'Email': 'contato@thalesmorais.dev',
-                        'Name': 'Me'
-                    },
-                    'To': [
-                        {
-                            'Email': 'thales.morais21@gmail.com',
-                            'Name': 'You'
-                        }
-                    ],
-                    'Subject': 'My first Mailjet Email!',
-                    'TextPart': 'Greetings from Mailjet!',
-                    'HTMLPart': '<h3>Dear passenger 1, welcome to <a href="https://www.mailjet.com/">Mailjet</a>!</h3><br />May the delivery force be with you!'
-                }
-            ]
-        })
-    }).then(function (ret) {
-        console.log(ret.data)
 
-        alert("Contato enviado com sucesso")
-    });
+async function sendMail() {
+  const nome = document.getElementById('name').value
+  const email = document.getElementById('email').value
+  const assunto = document.getElementById('subject').value
 
 
+  document.getElementById('inputsForm').style.display = 'none'
+  document.getElementById('spinnerLoader').style.display = 'flex'
+  document.getElementById('spanText').style.display = 'block'
+
+
+  const data = {
+    'subject': assunto,
+    'text': 'Contato',
+    'html': `
+      <h1>Nome: </h1> ${nome} <br />
+      <h1>Email: </h1> ${email} <br />
+      <h1>assunto: </h1> ${assunto} 
+    `,
+    'from': 'Contato 👻 <contato@thalesmorais.dev>'
+  }
+
+  const respon = await fetch('http://137.184.192.128:3000/sendmail/thales.morais21@gmail.com', {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'default',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+
+  if(respon.body.status = 'ok') {
+    document.getElementById('check').style.display = 'block'
+    document.getElementById('spinnerLoader').style.display = 'none'
+    document.getElementById('spanText').innerHTML = "Contato recebido com sucesso"
+  }
 }
