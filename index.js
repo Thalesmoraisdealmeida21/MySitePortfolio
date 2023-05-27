@@ -14,6 +14,8 @@ document.addEventListener("scroll", function () {
 
 function changePage(pageToChange) {
 
+    alert("Enviou email")
+
     if (pageToChange == 'contato') {
         document.getElementById('contato').scrollIntoView({ behavior: 'smooth' })
     }
