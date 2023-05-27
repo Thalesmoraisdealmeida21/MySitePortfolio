@@ -1,39 +1,33 @@
 
 async function sendMail() {
-  const nome = document.getElementById('name').value
-  const email = document.getElementById('email').value
-  const assunto = document.getElementById('subject').value
+  const data = JSON.stringify({
+    "FromEmail": "thales.morais21@gmail.com",
+    "FromName": "Your Mailjet Pilot",
+    "Recipients": [
+      {
+        "Email": "thales.morais21@gmail.com",
+        "Name": "Thales Morais"
+      }
+    ],
+    "Subject": "Your email flight plan!",
+    "Text-part": "Dear passenger, welcome to Mailjet! May the delivery force be with you!",
+    "Html-part": "<h3>Dear passenger, welcome to Mailjet!</h3><br />May the delivery force be with you!"
+  });
+  
+  const xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+  
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === this.DONE) {
+      console.log(this.responseText);
+    }
+  });
+  
+  xhr.open("POST", "https://api.mailjet.com/v3/send");
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("Authorization", "Basic YTBkMjMzNzM5MjIzOTg4NzVjNDI4OGY2YTAyMzc1YTM6NDU1ZGUyMDYwMDk5Y2JiZjZkOTIxM2JlYjVlNzZjNDc=");
+  
+  const response = xhr.send(data);
 
-
-  document.getElementById('inputsForm').style.display = 'none'
-  document.getElementById('spinnerLoader').style.display = 'flex'
-  document.getElementById('spanText').style.display = 'block'
-
-
-  const data = {
-    'subject': assunto,
-    'text': 'Contato',
-    'html': `
-      <h1>Nome: </h1> ${nome} <br />
-      <h1>Email: </h1> ${email} <br />
-      <h1>assunto: </h1> ${assunto} 
-    `,
-    'from': 'Contato 👻 <contato@thalesmorais.dev>'
-  }
-
-  const respon = await fetch('http://137.184.192.128:3000/sendmail/thales.morais21@gmail.com', {
-    method: 'POST',
-    mode: 'cors',
-    cache: 'default',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-
-  if(respon.body.status = 'ok') {
-    document.getElementById('check').style.display = 'block'
-    document.getElementById('spinnerLoader').style.display = 'none'
-    document.getElementById('spanText').innerHTML = "Contato recebido com sucesso"
-  }
+  console.log(response)
 }
